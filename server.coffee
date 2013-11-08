@@ -61,6 +61,10 @@ io.sockets.on "connection", (socket) ->
         }
     console.log "Player #{playerId} showed their hand"
 
+  socket.on "removePlayer", ->
+    table.players.splice playerId, 1
+    sendState table
+
   socket.on "renamePlayer", (name) ->
     table.players[playerId].playerName = name
     sendState table

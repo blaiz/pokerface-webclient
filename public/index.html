@@ -41,12 +41,6 @@
     clock();
   </script>
 
-  <ul ng-show="playerId == state.game.turn">
-    <li><button ng-click="fold()">Fold</button></li>
-    <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet {{ amount }}</button></li>
-    <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
-  </ul>
-
   <div id="wrapper" class="player_count_{{ state.players.length }}">
 
   <!-- add winner class to make winner -->
@@ -61,6 +55,8 @@
 
     <div class="dialContainer">
       <input knob type="text" value="0" class="dial" data-width="178">
+      <button ng-click="bet(state.game.bets[player.playerID])" ng-show="state.game && playerId == player.playerID">Bet {{ state.game.bets[player.playerID] }}</button>
+      <button ng-click="fold()" ng-show="state.game && playerId == player.playerID">Fold</button>
     </div>
 
     <div class="score color_0">

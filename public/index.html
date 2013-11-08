@@ -18,63 +18,59 @@
 </head>
 <body ng-controller="MainCtrl">
 
-	<!-- <li><button ng-click="removePlayer()">Remove Player</button></li>
-	<li><input type="text" ng-model="playerName"><button ng-click="renamePlayer(playerName)">Rename Player</button></li>
-	<li><button ng-click="startGame()">Start Game</button></li>
-	<li><button ng-click="fold()">Fold</button></li>
-	<li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet</button></li>
-	<li><button ng-click="showHand()">Show Hand</button></li> -->
+<li><button ng-click="removePlayer()">Remove Player</button></li>
+<li><input type="text" ng-model="playerName"><button ng-click="renamePlayer(playerName)">Rename Player</button></li>
+<li><button ng-click="startGame()">Start Game</button></li>
+<li><button ng-click="fold()">Fold</button></li>
+<li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet</button></li>
+<li><button ng-click="showHand()">Show Hand</button></li>
 
-	<!-- <ul>
-	    <li ng-repeat="player in state.players">
-	        Player #{{ player.userID }} - {{ player.playerName }} <span ng-show="player.userID == playerId">(current user)</span>
-	        <ul>
-	            <li ng-repeat="(key,val) in player">{{ key }}: {{ val }}</li>
-	            <li ng-show="cards[player.userID]">Hand: {{ cards[player.userID] }}</li>
-	        </ul>
-	    </li>
-	</ul> -->
+<!-- <ul>
+    <li ng-repeat="player in state.players">
+        Player #{{ player.userID }} - {{ player.playerName }} <span ng-show="player.userID == playerId">(current user)</span>
+        <ul>
+            <li ng-repeat="(key,val) in player">{{ key }}: {{ val }}</li>
+            <li ng-show="cards[player.userID]">Hand: {{ cards[player.userID] }}</li>
+        </ul>
+    </li>
+</ul> -->
 
-	<div id="wrapper" class="player_count_{{ state.players.length }}">
+<div id="wrapper" class="player_count_{{ state.players.length }}">
 
-		<div ng-repeat="player in state.players" class="player loc_{{ player.userID }}"><!-- add winner class to make winner -->
-			<div class="avatar">
-				<span class="winnerMessage"><span>Winner <br />Takes All!</span></span>
-				<img src="images/temp{{ player.userID }}.jpg" alt="Player one's avatar image.">
-			</div>
+  <div ng-repeat="player in state.players" class="player loc_{{ player.userID }}"><!-- add winner class to make winner -->
+    <div class="avatar">
+      <span class="winnerMessage"><span>Winner <br />Takes All!</span></span>
+      <img ng-src="images/temp{{ player.userID }}.jpg" alt="Player one's avatar image.">
+    </div>
 
-			<div class="score color_0">
-				<h1>370</h1>
-				<h2 class="info">stack total</h2>
-			</div>
+    <div class="score color_0">
+      <h1>370</h1>
+      <h2 class="info">stack total</h2>
+    </div>
 
-			<div class="stats">
+    <div class="stats">
 
-				<ul class="cards">
-					<li>3 <span class="icon diamond">Diamond</span></li>
-					<li>9 <span class="icon club">Club</span></li>
-					<li class="amountBetting color_0">157</li>
-				</ul>
+      <ul class="cards">
+        <li>3 <span class="icon diamond">Diamond</span></li>
+        <li>9 <span class="icon club">Club</span></li>
+        <li class="amountBetting color_0">157</li>
+      </ul>
 
-			</div>
+    </div>
 
-		</div>
+  </div>
 
-        <button ng-click="startGame()">Start Game</button>
+  <button ng-click="startGame()">Start Game</button>
 
-		<ul id="largeCards">
-			<li>K <span class="icon club">Club</span></li>
-			<li>10 <span class="icon heart">Hearts</span></li>
-			<li>J <span class="icon spade">Spade</span></li>
-			<li>4 <span class="icon club">Club</span></li>
-			<li>8 <span class="icon diamond">Diamond</span></li>
-		</ul>
+  <ul id="largeCards">
+    <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{ card[1] }}">{{ card[1] }}</span></li>
+  </ul>
 
-		<div id="pot">
-			<h1>1,850</h1>
-		</div>
+  <div id="pot">
+    <h1>{{ state.game.pot }}</h1>
+  </div>
 
-	</div><!-- wrapper -->
+</div><!-- wrapper -->
 
 </body>
 </html>

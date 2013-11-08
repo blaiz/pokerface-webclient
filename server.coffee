@@ -1,73 +1,85 @@
 io = require("socket.io").listen 8081
 poker = require "./vendor/node-poker"
 
-clients = {}
-players = []
-table = null
-n = 0
-lastBet = 0
+clients = {} # contains a list of socket objects, one for each client
+players = [] # contains an array of socket.id to match poker player with socket clients
+table = null # our master table object
+playerIdCount = lastBet = 0
 
 io.sockets.on "connection", (socket) ->
-  if n is 0
+  # if this is the first client, let's create a table
+  # this doesn't start the game yet
+  if playerIdCount is 0
     table = new poker.Table 1, 2, 2, 10, 200, 200
-    console.log "Table created"
+
+  # if this is a new client, add it to the list of clients, and create a player Object for them
   if not clients[socket.id]?
     clients[socket.id] = {
       socket,
-      n
+      playerId: playerIdCount
     }
     players.push socket.id
-    table.AddPlayer n, n, 'No Name', 200
-    console.log "Player #{n} added"
-    n++
-  playerId = clients[socket.id].n
-  socket.emit "setPlayerId", clients[socket.id].n
+    table.AddPlayer socket.id, playerIdCount, "No Name", 200
+    playerIdCount++
+
+  playerId = clients[socket.id].playerId
+  socket.emit "setPlayerId", clients[socket.id].playerId
+
+  # if player joins after the game has started, let's send them their hand now
+  if table.game?
+    socket.emit "addHand", table.players[clients[socket.id].playerId].cards
+
   sendState table
 
   socket.on "startGame", ->
+    # start the game
     table.StartGame()
-    for id, client of clients
-      client.socket.emit "addHand", table.players[client.n].cards
-      console.log "Player #{client.n} now has hand #{table.players[client.n].cards.toString()}"
+    # give each player their hand
+    for key, client of clients
+      client.socket.emit "addHand", table.players[client.playerId].cards
     sendState table
 
   socket.on "fold", ->
     table.players[playerId].Fold()
-    console.log "Player #{playerId} folded"
     sendState table
 
   socket.on "bet", (amount) ->
+    # check is a bet of 0
     if amount is 0
       table.players[playerId].Check()
-      console.log "Player #{playerId} checked #{amount}"
+    # all in is a bet of all chips
     else if amount is table.players[playerId].chips
       table.players[playerId].AllIn()
-      console.log "Player #{playerId} is all in!"
+    # call is a bet the same amount as the last bet
     else if amount is lastBet
       table.players[playerId].Call()
-      console.log "Player #{playerId} called #{amount}"
+    # betting more than last time (bet or raise)
     else
       table.players[playerId].Bet amount
-      console.log "Player #{playerId} bet #{amount}"
       lastBet = amount
     sendState table
 
   socket.on "showHand", ->
-    for id, client of clients
+    # a player decided to show their hand, let's send their hand to everyone
+    for key, client of clients
       client.socket.emit "showHand", {
           playerId,
           cards: table.players[playerId].cards
         }
-    console.log "Player #{playerId} showed their hand"
 
   socket.on "removePlayer", ->
-    table.players.splice playerId, 1
+    table.players.splice playerId, 1 # @todo handle properly
     sendState table
 
   socket.on "renamePlayer", (name) ->
     table.players[playerId].playerName = name
     sendState table
 
+###
+  Get a state (table) object and turn it into a JSON string
+  We have to do all that logic because of circular references
+  Otherwise, JSON.stringify throws exceptions
+###
 stringifyState = (state) ->
   cache = []
   state = JSON.stringify state, (key, value) ->
@@ -80,14 +92,22 @@ stringifyState = (state) ->
       cache.push value
     value
   cache = null
+  # we need to remove hands and the deck from the state,
+  # so we're making it an object again, clean it up, then turn it back into a string
   JSON.stringify removeCardsFromState(JSON.parse(state))
 
+###
+  Remove all players' hands and the deck from a state
+###
 removeCardsFromState = (state) ->
   for player in state.players
     delete player.cards
   delete state.game?.deck
   return state
 
+###
+  Send the state to all clients to keep them in sync with the internal state of our application
+###
 sendState = (state) ->
   for id, client of clients
     client.socket.emit "updateState", stringifyState state

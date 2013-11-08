@@ -27,12 +27,12 @@
 <div id="wrapper" class="player_count_{{ state.players.length }}">
 
   <!-- add winner class to make winner -->
-  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.userID }}" ng-class="{player_action: player.userID == state.game.turn}">
-    <div class="dealer" ng-show="player.userID == state.game.dealer">Dealer</div>
+  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{player_action: player.playerID == state.game.turn}">
+    <div class="dealer" ng-show="player.playerID == state.game.dealer">Dealer</div>
 
     <div class="avatar">
       <span class="winnerMessage"><span>Winner <br>Takes All!</span></span>
-      <img ng-src="images/temp{{ player.userID }}.jpg" alt="Player one's avatar image.">
+      <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
     </div>
 
     <div class="score color_0">
@@ -43,7 +43,7 @@
     <div class="stats">
 
       <ul class="cards">
-        <li ng-show="cards[player.userID]" ng-repeat="card in cards[player.userID]">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
+        <li ng-show="cards[player.playerID]" ng-repeat="card in cards[player.playerID]">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
         <li class="amountBetting color_0">157</li>
       </ul>
 

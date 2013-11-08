@@ -1,10 +1,11 @@
 @app.directive('fadeInPlayer', ($timeout) ->
-	return {
-		link: (scope, elem, attrs) ->
-			$timeout(->
-				console.log('fadeInPlayer')
-				if !elem.hasClass('player_in')
-					elem.addClass('player_in')
-			, 1000)
-	}
+  return {
+    link: (scope, elem, attrs) ->
+
+      if scope.player.playerID == scope.users.newPlayer.playerID
+        # console.log('newUser: ', scope.users.newPlayer.playerID)
+        $timeout( ->
+          elem.removeClass('trans_out')
+        , 0)
+  }
 )

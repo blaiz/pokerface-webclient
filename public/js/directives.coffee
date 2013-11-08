@@ -1,17 +1,7 @@
-@app.directive('knob', ->
-    return {
-        restrict: 'A',
-        link: (scope, element, attrs) ->
-            $(element).knob().val(1);
-            $(element).knob().data('width', 700)
-            console.log(attrs)
+@app.directive 'knob', ->
+  (scope, element, attrs) ->
+    $(element).val(scope.state.game.bets[scope.player.playerID]).knob()
 
-    };
-);
-
-@app.directive('fadeInPlayer', ($timeout) ->
-  return {
-    link: (scope, elem, attrs) ->
+@app.directive 'fadeInPlayer', ->
+  (scope, elem, attrs) ->
       scope.newPlayerId = null
-  }
-)

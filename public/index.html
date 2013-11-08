@@ -3,32 +3,32 @@
 <head>
   <title>PokerFace</title>
 
-  <!-- angular -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-  <script src="/demo-jquery_knoob/jquery.knob.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/factories.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/filters.js"></script>
-
   <!-- styling -->
   <link rel="stylesheet" href="css/styles.css">
-  <link href="/demo-jquery_knoob/layout.css" rel="stylesheet">
-
-  <script src="js/controllers.js"></script>
-  <script src="js/factories.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/filters.js"></script>
 
   <!-- typography -->
   <script type="text/javascript" src="//use.typekit.net/nyf5kng.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+  <!-- angular -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <script src="js/jquery.knob.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/factories.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
+
 </head>
 
 <body ng-controller="MainCtrl">
+
+<script>
+  $(function() {
+    $(".dial").knob();
+  });
+</script>
 
   <script>
     function clock() {
@@ -59,8 +59,6 @@
   <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
 </ul>
 
-newPlayerId: {{ newPlayerId }}
-
 <div id="wrapper" class="player_count_{{ state.players.length }}">
 
   <!-- add winner class to make winner -->
@@ -72,11 +70,7 @@ newPlayerId: {{ newPlayerId }}
       <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
     </div>
 
-    <div class="demo">
-      <div style="display:inline;width:100px;height:200px;">
-        <input knob class="dial" data-width="100" data-displayinput="true" data-width="700" value="35" style="display: none; width: 0px; visibility: hidden;">
-      </div>
-    </div>
+    <input knob type="text" value="{{ state.game.bets[player.playerID] }}" class="dial">
 
     <div class="score color_0">
       <h1>{{ player.chips }}</h1>

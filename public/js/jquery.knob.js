@@ -13,7 +13,7 @@
  *
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */
-var createCircularCircle = (function($) {
+(function($) {
     /**
      * Kontrol library
      */

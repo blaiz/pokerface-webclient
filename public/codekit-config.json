@@ -69,16 +69,17 @@
       "outputStyle" : 0,
       "fileType" : 32
     },
-    "\/images\/temp1.jpg" : {
+    "\/css\/styles.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
-      "initialSize" : 53401,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/css\/styles.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/css\/styles.css",
+      "fileType" : 4,
+      "debugStyle" : 0
     },
     "\/images\/diamondLarge.png" : {
       "ignoreWasSetByUser" : 0,
@@ -103,17 +104,16 @@
       "outputStyle" : 1,
       "fileType" : 32
     },
-    "\/css\/styles.scss" : {
+    "\/images\/diamond.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/styles.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/css\/styles.css",
-      "fileType" : 4,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/images\/diamond.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/diamond.png",
+      "initialSize" : 1299,
+      "fileType" : 8192
     },
     "\/js\/filters.js" : {
       "ignoreWasSetByUser" : 0,
@@ -126,16 +126,16 @@
       "outputAbbreviatedPath" : "\/js\/filters-ck.js",
       "fileType" : 64
     },
-    "\/images\/diamond.png" : {
+    "\/images\/temp1.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/diamond.png",
+      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/diamond.png",
-      "initialSize" : 1299,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "initialSize" : 53401,
+      "fileType" : 4096
     },
     "\/images\/bgd.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -212,6 +212,17 @@
       "initialSize" : 16797,
       "fileType" : 4096
     },
+    "\/js\/controllers.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/controllers.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/controllers-ck.js",
+      "fileType" : 64
+    },
     "\/js\/filters.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -224,26 +235,6 @@
       "outputStyle" : 0,
       "fileType" : 32
     },
-    "\/js\/controllers.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/controllers.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/controllers-ck.js",
-      "fileType" : 64
-    },
-    "\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/js\/directives.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -254,6 +245,15 @@
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/js\/directives-ck.js",
       "fileType" : 64
+    },
+    "\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/js\/factories.coffee" : {
       "ignoreWasSetByUser" : 0,

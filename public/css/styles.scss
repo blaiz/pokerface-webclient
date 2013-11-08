@@ -187,6 +187,18 @@ body {
   -o-transform: scale(1);
   transform: scale(1);
 
+  .betButton {
+    position: relative;
+    top: 25px;
+    left: 32px;
+  }
+
+  .fold {
+    position: relative;
+    top: 25px;
+    left: 36px;
+  }
+
   &.player_action {
     -webkit-transform: scale(1.35);
     -moz-transform: scale(1.35);

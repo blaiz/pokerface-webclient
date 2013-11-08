@@ -69,16 +69,16 @@
       "outputStyle" : 0,
       "fileType" : 32
     },
-    "\/images\/temp1.jpg" : {
+    "\/images\/diamondLarge.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "inputAbbreviatedPath" : "\/images\/diamondLarge.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
-      "initialSize" : 53401,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/images\/diamondLarge.png",
+      "initialSize" : 1389,
+      "fileType" : 8192
     },
     "\/css\/styles.scss" : {
       "ignoreWasSetByUser" : 0,
@@ -92,16 +92,17 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/images\/diamondLarge.png" : {
+    "\/js\/controllers.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/diamondLarge.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/diamondLarge.png",
-      "initialSize" : 1389,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/js\/controllers.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/js\/controllers.js",
+      "outputStyle" : 1,
+      "fileType" : 32
     },
     "\/images\/diamond.png" : {
       "ignoreWasSetByUser" : 0,
@@ -125,17 +126,16 @@
       "outputAbbreviatedPath" : "\/js\/filters-ck.js",
       "fileType" : 64
     },
-    "\/js\/controllers.coffee" : {
+    "\/images\/temp1.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/controllers.coffee",
-      "checkOutputStyle" : 0,
-      "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/js\/controllers.js",
-      "outputStyle" : 1,
-      "fileType" : 32
+      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "initialSize" : 53401,
+      "fileType" : 4096
     },
     "\/images\/bgd.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -159,6 +159,17 @@
       "initialSize" : 23430,
       "fileType" : 4096
     },
+    "\/images\/clubLarge.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/clubLarge.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/clubLarge.png",
+      "initialSize" : 1356,
+      "fileType" : 8192
+    },
     "\/images\/club.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -179,39 +190,16 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 32768
     },
-    "\/images\/clubLarge.png" : {
+    "\/images\/spade.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/clubLarge.png",
+      "inputAbbreviatedPath" : "\/images\/spade.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/clubLarge.png",
-      "initialSize" : 1356,
+      "outputAbbreviatedPath" : "\/images\/spade.png",
+      "initialSize" : 1349,
       "fileType" : 8192
-    },
-    "\/js\/controllers.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/controllers.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/controllers-ck.js",
-      "fileType" : 64
-    },
-    "\/js\/filters.coffee" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 1,
-      "inputAbbreviatedPath" : "\/js\/filters.coffee",
-      "checkOutputStyle" : 0,
-      "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/js\/filters.js",
-      "outputStyle" : 0,
-      "fileType" : 32
     },
     "\/images\/temp0.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -223,6 +211,17 @@
       "outputAbbreviatedPath" : "\/images\/temp0.jpg",
       "initialSize" : 16797,
       "fileType" : 4096
+    },
+    "\/js\/controllers.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/controllers.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/controllers-ck.js",
+      "fileType" : 64
     },
     "\/js\/directives.js" : {
       "ignoreWasSetByUser" : 0,
@@ -244,16 +243,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/spade.png" : {
+    "\/js\/filters.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/spade.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/spade.png",
-      "initialSize" : 1349,
-      "fileType" : 8192
+      "outputPathIsSetByUser" : 1,
+      "inputAbbreviatedPath" : "\/js\/filters.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/js\/filters.js",
+      "outputStyle" : 0,
+      "fileType" : 32
     },
     "\/js\/factories.coffee" : {
       "ignoreWasSetByUser" : 0,

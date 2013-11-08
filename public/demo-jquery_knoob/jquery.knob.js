@@ -14,7 +14,6 @@
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */
 var createCircularCircle = (function($) {
-    console.log('yoda!');
     /**
      * Kontrol library
      */

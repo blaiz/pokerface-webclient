@@ -28,191 +28,30 @@
 
 </head>
 
-<body ng-controller="MainCtrl" class="layout-document">
-   <script>
-  //       $(function() {
+<body ng-controller="MainCtrl">
 
-  //           $(".knob").knob({
-  //               /*change : function (value) {
-  //                   //console.log("change : " + value);
-  //               },
-  //               release : function (value) {
-  //                   console.log("release : " + value);
-  //               },
-  //               cancel : function () {
-  //                   console.log("cancel : " + this.value);
-  //               },*/
-  //               draw : function () {
-
-  //                   // "tron" case
-  //                   if(this.$.data('skin') == 'tron') {
-
-  //                       var a = this.angle(this.cv)  // Angle
-  //                           , sa = this.startAngle          // Previous start angle
-  //                           , sat = this.startAngle         // Start angle
-  //                           , ea                            // Previous end angle
-  //                           , eat = sat + a                 // End angle
-  //                           , r = true;
-
-  //                       this.g.lineWidth = this.lineWidth;
-
-  //                       this.o.cursor
-  //                           && (sat = eat - 0.3)
-  //                           && (eat = eat + 0.3);
-
-  //                       if (this.o.displayPrevious) {
-  //                           ea = this.startAngle + this.angle(this.value);
-  //                           this.o.cursor
-  //                               && (sa = ea - 0.3)
-  //                               && (ea = ea + 0.3);
-  //                           this.g.beginPath();
-  //                           this.g.strokeStyle = this.previousColor;
-  //                           this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
-  //                           this.g.stroke();
-  //                       }
-
-  //                       this.g.beginPath();
-  //                       this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
-  //                       this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
-  //                       this.g.stroke();
-
-  //                       this.g.lineWidth = 2;
-  //                       this.g.beginPath();
-  //                       this.g.strokeStyle = this.o.fgColor;
-  //                       this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-  //                       this.g.stroke();
-
-  //                       return false;
-  //                   }
-  //               }
-  //           });
-
-  //           // Example of infinite knob, iPod click wheel
-  //           var v, up=0,down=0,i=0
-  //               ,$idir = $("div.idir")
-  //               ,$ival = $("div.ival")
-  //               ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
-  //               ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
-  //           $("input.infinite").knob(
-  //                               {
-  //                               min : 0
-  //                               , max : 20
-  //                               , stopper : false
-  //                               , change : function () {
-  //                                               if(v > this.cv){
-  //                                                   if(up){
-  //                                                       decr();
-  //                                                       up=0;
-  //                                                   }else{up=1;down=0;}
-  //                                               } else {
-  //                                                   if(v < this.cv){
-  //                                                       if(down){
-  //                                                           incr();
-  //                                                           down=0;
-  //                                                       }else{down=1;up=0;}
-  //                                                   }
-  //                                               }
-  //                                               v = this.cv;
-  //                                           }
-  //                               });
-  //       });
-    </script>
-    <style>
-        p{font-size: 30px; line-height: 30px}
-        div.demo{text-align: center; width: 280px; float: left}
-        div.demo > p{font-size: 20px}
-    </style>
-
-  <!-- <li><button ng-click="removePlayer()">Remove Player</button></li>
-  <li><input type="text" ng-model="playerName"><button ng-click="renamePlayer(playerName)">Rename Player</button></li>
-  <li><button ng-click="startGame()">Start Game</button></li>
-  <li><button ng-click="fold()">Fold</button></li>
-  <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet</button></li>
-  <li><button ng-click="showHand()">Show Hand</button></li> -->
-
-  <!-- <ul>
-      <li ng-repeat="player in state.players">
-          Player #{{ player.userID }} - {{ player.playerName }} <span ng-show="player.userID == playerId">(current user)</span>
-          <ul>
-              <li ng-repeat="(key,val) in player">{{ key }}: {{ val }}</li>
-              <li ng-show="cards[player.userID]">Hand: {{ cards[player.userID] }}</li>
-          </ul>
-      </li>
-  </ul> -->
-
-  <div id="wrapper" class="player_count_{{ state.players.length }}">
-
-
-
-    <div ng-repeat="player in state.players" class="player loc_{{ player.userID }}"><!-- add winner class to make winner -->
-
-    <div class="avatar">
-      <span class="winnerMessage"><span>Winner <br />Takes All!</span></span>
-      <img src="images/temp{{ player.userID }}.jpg" alt="Player one's avatar image.">
-    </div>
-
-   <div class="demo">
-      <div style="display:inline;width:100px;height:200px;">
-        <input knob class="dial" data-width="100" data-displayinput="true" data-width="700" value="35" style="display: none; width: 0px; visibility: hidden;">
-      </div>
-    </div>
-
-      <div class="score color_0">
-        <h1>370</h1>
-        <h2 class="info">stack total</h2>
-      </div>
-
-      <div class="stats">
-
-        <ul class="cards">
-          <li>3 <span class="icon diamond">Diamond</span></li>
-          <li>9 <span class="icon club">Club</span></li>
-          <li class="amountBetting color_0">157</li>
-        </ul>
-
-      </div>
-
-    </div>
-
-        <button ng-click="startGame()">Start Game</button>
-
-    <ul id="largeCards">
-      <li>K <span class="icon club">Club</span></li>
-      <li>10 <span class="icon heart">Hearts</span></li>
-      <li>J <span class="icon spade">Spade</span></li>
-      <li>4 <span class="icon club">Club</span></li>
-      <li>8 <span class="icon diamond">Diamond</span></li>
-    </ul>
-
-    <div id="pot">
-      <h1>1,850</h1>
-    </div>
-
-  </div><!-- wrapper -->
-    <script>
+  <script>
     function clock() {
-        var $s = $(".second"),
-            $m = $(".minute"),
-            $h = $(".hour");
-            d = new Date(),
-            s = d.getSeconds(),
-            m = d.getMinutes(),
-            h = d.getHours();
-        $s.val(s).trigger("change");
-        $m.val(m).trigger("change");
-        $h.val(h).trigger("change");
-        setTimeout("clock()", 1000);
+      var $s = $(".second"),
+          $m = $(".minute"),
+          $h = $(".hour");
+          d = new Date(),
+          s = d.getSeconds(),
+          m = d.getMinutes(),
+          h = d.getHours();
+      $s.val(s).trigger("change");
+      $m.val(m).trigger("change");
+      $h.val(h).trigger("change");
+      setTimeout("clock()", 1000);
     }
     clock();
     </script>
 
-    <script>
-    // $('.dial')
-    // .val(1)
-    // .trigger('change');
-    </script>
-=======
-<body ng-controller="MainCtrl">
+  <style>
+    p { font-size: 30px; line-height: 30px }
+    div.demo { text-align: center; width: 280px; float: left }
+    div.demo > p { font-size: 20px }
+  </style>
 
 <ul ng-show="playerId == state.game.turn">
   <li><button ng-click="fold()">Fold</button></li>
@@ -229,6 +68,12 @@
     <div class="avatar">
       <span class="winnerMessage"><span>Winner <br>Takes All!</span></span>
       <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
+    </div>
+
+    <div class="demo">
+      <div style="display:inline;width:100px;height:200px;">
+        <input knob class="dial" data-width="100" data-displayinput="true" data-width="700" value="35" style="display: none; width: 0px; visibility: hidden;">
+      </div>
     </div>
 
     <div class="score color_0">

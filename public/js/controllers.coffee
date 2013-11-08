@@ -36,7 +36,7 @@
       console.log "You are player #", playerId
 
     socket.on "updateState", (state) ->
-      $scope.state = JSON.parse(state)
+      $scope.state = state
       $scope.cards = [] unless $scope.state.game? # if the game hasn't started yet, let's clear all cards
       console.log "New state: ", $scope.state
 
@@ -64,6 +64,5 @@
       console.log "New hand: ", cards
 
     socket.on "showHand", (data) ->
-      data = JSON.parse(data)
       $scope.cards[data.playerId] = data.cards
       console.log "Hand for player #{data.playerId}:", data.cards

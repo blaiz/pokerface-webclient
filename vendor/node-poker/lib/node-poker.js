@@ -1108,7 +1108,7 @@ console.log('-------------------------------------------------------------------
 console.log(bet);
     for (var i = 0; i < this.table.players.length; i += 1) {
         if (this === this.table.players[i]) {
-            this.table.game.bets[i] += bet;
+            this.table.game.bets[i] += parseInt(bet, 10);
             this.table.players[i].chips -= bet;
             this.acted = true;
         }

@@ -80,7 +80,7 @@ io.sockets.on "connection", (socket) ->
   We have to do all that logic because of circular references
   Otherwise, JSON.stringify throws exceptions
 ###
-stringifyState = (state) ->
+toJSONState = (state) ->
   cache = []
   state = JSON.stringify state, (key, value) ->
     if typeof value is "object" and value isnt null
@@ -94,7 +94,7 @@ stringifyState = (state) ->
   cache = null
   # we need to remove hands and the deck from the state,
   # so we're making it an object again, clean it up, then turn it back into a string
-  JSON.stringify removeCardsFromState(JSON.parse(state))
+  removeCardsFromState(JSON.parse(state))
 
 ###
   Remove all players' hands and the deck from a state
@@ -110,4 +110,4 @@ removeCardsFromState = (state) ->
 ###
 sendState = (state) ->
   for id, client of clients
-    client.socket.emit "updateState", stringifyState state
+    client.socket.emit "updateState", toJSONState state

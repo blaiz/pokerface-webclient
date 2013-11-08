@@ -2,6 +2,17 @@
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
   "creatorBuild" : "8376",
   "files" : {
+    "\/images\/temp2.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/temp2.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/temp2.jpg",
+      "initialSize" : 16950,
+      "fileType" : 4096
+    },
     "\/js\/factories.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -55,6 +66,15 @@
       "initialSize" : 16891,
       "fileType" : 4096
     },
+    "\/styles.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/styles.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
     "\/images\/heartLg.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -65,15 +85,6 @@
       "outputAbbreviatedPath" : "\/images\/heartLg.png",
       "initialSize" : 1392,
       "fileType" : 8192
-    },
-    "\/styles.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/styles.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/js\/directives.coffee" : {
       "ignoreWasSetByUser" : 0,
@@ -98,17 +109,6 @@
       "initialSize" : 1389,
       "fileType" : 8192
     },
-    "\/images\/temp1.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
-      "initialSize" : 53401,
-      "fileType" : 4096
-    },
     "\/css\/styles.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -121,17 +121,6 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/images\/diamond.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/diamond.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/diamond.png",
-      "initialSize" : 1299,
-      "fileType" : 8192
-    },
     "\/js\/controllers.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -143,6 +132,39 @@
       "outputAbbreviatedPath" : "\/js\/controllers.js",
       "outputStyle" : 1,
       "fileType" : 32
+    },
+    "\/images\/diamond.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/diamond.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/diamond.png",
+      "initialSize" : 1299,
+      "fileType" : 8192
+    },
+    "\/js\/filters.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/filters.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/filters-ck.js",
+      "fileType" : 64
+    },
+    "\/images\/temp1.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "initialSize" : 53401,
+      "fileType" : 4096
     },
     "\/images\/bgd.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -212,7 +234,7 @@
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
+      "outputPathIsSetByUser" : 1,
       "inputAbbreviatedPath" : "\/js\/filters.coffee",
       "checkOutputStyle" : 0,
       "minifyOutput" : 0,
@@ -231,15 +253,15 @@
       "initialSize" : 16797,
       "fileType" : 4096
     },
-    "\/js\/directives.js" : {
+    "\/js\/controllers.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/directives.js",
+      "inputAbbreviatedPath" : "\/js\/controllers.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/directives-ck.js",
+      "outputAbbreviatedPath" : "\/js\/controllers-ck.js",
       "fileType" : 64
     },
     "\/index.html" : {
@@ -251,15 +273,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/js\/controllers.js" : {
+    "\/js\/directives.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/controllers.js",
+      "inputAbbreviatedPath" : "\/js\/directives.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/controllers-ck.js",
+      "outputAbbreviatedPath" : "\/js\/directives-ck.js",
       "fileType" : 64
     },
     "\/js\/factories.coffee" : {
@@ -285,16 +307,14 @@
       "outputAbbreviatedPath" : "\/demo-jquery_knoob\/jquery.knob-ck.js",
       "fileType" : 64
     },
-    "\/images\/temp2.jpg" : {
+    "\/css\/styles.css" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/temp2.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/temp2.jpg",
-      "initialSize" : 16950,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/css\/styles.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     }
   },
   "manualImportLinks" : [

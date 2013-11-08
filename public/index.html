@@ -70,7 +70,9 @@
       <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
     </div>
 
-    <input knob type="text" value="{{ state.game.bets[player.playerID] }}" class="dial">
+    <div class="dialContainer">
+      <input knob type="text" value="{{ state.game.bets[player.playerID] }}" class="dial" data-width="178">
+    </div>
 
     <div class="score color_0">
       <h1>{{ player.chips }}</h1>

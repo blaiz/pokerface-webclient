@@ -113,6 +113,11 @@ body {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
+
+    // hacky, but needed to fix loc_0 when player_action isn't on
+    .dialContainer {
+      top: 2px;
+    }
   }
 }
 
@@ -120,6 +125,11 @@ body {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
+
+    // hacky, but needed to fix loc_0 when player_action isn't on
+    .dialContainer {
+      top: 2px;
+    }
   }
 
   .loc_1 {
@@ -137,6 +147,11 @@ body {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
+
+    // hacky, but needed to fix loc_0 when player_action isn't on
+    .dialContainer {
+      top: 2px;
+    }
   }
 
   .loc_1 {
@@ -242,6 +257,10 @@ body {
     }
   }
 
+  // &.player_action {
+  //   top: 2px;
+  // }
+
   .avatar {
     width: 150px; // 256 / 1680
     height: 150px; // 256 / 1050
@@ -249,6 +268,36 @@ body {
     -moz-border-radius: 50%;
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  // When active lets adjust the origins of the super slider
+  &.player_action {
+
+    // adjust location of score
+    .score {
+      top: -52px;
+    }
+
+    .dialContainer {
+      top: 2px;
+    }
+  }
+
+  .dial {
+    display: none !important;
+  }
+
+  .dialContainer {
+    display: inline;
+    width: 178px;
+    height: 200px;
+    position: absolute;
+    top: -14px;
+    left: -14px;
+
+    input {
+      display: none;
+    }
   }
 
   .demo {

@@ -26,7 +26,7 @@
 
 <div id="wrapper" class="player_count_{{ state.players.length }}">
 
-  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.userID }}" ng-class="{trans_out: player.playerID == users.newPlayer.playerID, player_action: player.playerID == state.game.turn}"><!-- add winner class to make winner -->
+  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{trans_out: player.playerID == users.newPlayer.playerID, player_action: player.playerID == state.game.turn}"><!-- add winner class to make winner -->
     <div class="dealer" ng-show="player.playerID == state.game.dealer">Dealer</div>
 
     <div class="avatar">

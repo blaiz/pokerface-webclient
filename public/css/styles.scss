@@ -203,8 +203,19 @@ body {
     transform: scale(1);
   }
 
-  // win conditions
-  .winnerMessage {
+  &.folded {
+    .foldMessage {
+      display: table !important;
+    }
+  }
+
+  &.winner {
+    .winnerMessage {
+      display: table !important;
+    }
+  }
+
+  .winnerMessage, .foldMessage {
     display: none;
     width: 152px;
     height: 152px;
@@ -223,17 +234,12 @@ body {
     font-family: "brandon-grotesque",sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 25px;
+    font-size: 35px;
+    color: #2d2d2d;
 
     span {
       display: table-cell;
       vertical-align: middle;
-    }
-  }
-
-  &.winner {
-    .winnerMessage {
-      display: table;
     }
   }
 

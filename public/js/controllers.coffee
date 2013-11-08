@@ -33,6 +33,7 @@
 
     socket.on "updateState", (state) ->
       $scope.state = JSON.parse(state)
+      $scope.cards = [] unless $scope.state.game?
       console.log "New state: ", $scope.state
 
     socket.on "addHand", (cards) ->

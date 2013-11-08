@@ -1,9 +1,30 @@
 <!doctype html>
-<html>
-<head>
-    <title>PokerFace</title>
-</head>
-<body>
+<html ng-app="PokerFace">
+    <head>
+        <title>PokerFace</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+        <script src="/js/controllers.js"></script>
+        <script src="/js/factories.js"></script>
+    </head>
+    <body ng-controller="MainCtrl">
+        <ul>
+            <li><button ng-click="removePlayer()">Remove Player</button></li>
+            <li><input type="text" ng-model="playerName"><button ng-click="renamePlayer(playerName)">Rename Player</button></li>
+            <li><button ng-click="startGame()">Start Game</button></li>
+            <li><button ng-click="fold()">Fold</button></li>
+            <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet</button></li>
+            <li><button ng-click="showHand()">Show Hand</button></li>
+        </ul>
 
-</body>
+        <ul>
+            <li ng-repeat="player in state.players">
+                Player #{{ player.userID }} - {{ player.playerName }} <span ng-show="player.userID == playerId">(current user)</span>
+                <ul>
+                    <li ng-repeat="(key,val) in player">{{ key }}: {{ val }}</li>
+                    <li ng-show="cards[player.userID]">Hand: {{ cards[player.userID] }}</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
 </html>

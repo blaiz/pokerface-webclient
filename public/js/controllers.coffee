@@ -37,6 +37,7 @@
 
     socket.on "updateState", (state) ->
       $scope.state = JSON.parse(state)
+      $scope.cards = [] unless $scope.state.game? # if the game hasn't started yet, let's clear all cards
       console.log "New state: ", $scope.state
 
       if $scope.users.currentPlayers.length == 0

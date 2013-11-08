@@ -4,14 +4,15 @@
   <title>PokerFace</title>
 
   <!-- angular -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
-  <script src="/js/controllers.js"></script>
-  <script src="/js/factories.js"></script>
-  <script src="/js/directives.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/factories.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
 
   <!-- styling -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 
   <!-- typography -->
   <script type="text/javascript" src="//use.typekit.net/nyf5kng.js"></script>
@@ -25,12 +26,12 @@
 
 <div id="wrapper" class="player_count_{{ state.players.length }}">
 
-  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.userID }}" ng-class="{trans_out: player.playerID == users.newPlayer.playerID}"><!-- add winner class to make winner -->
-    <div class="dealer" ng-show="state.game.dealer === player.userID">Dealer</div>
+  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.userID }}" ng-class="{trans_out: player.playerID == users.newPlayer.playerID, player_action: player.playerID == state.game.turn}"><!-- add winner class to make winner -->
+    <div class="dealer" ng-show="player.playerID == state.game.dealer">Dealer</div>
 
     <div class="avatar">
       <span class="winnerMessage"><span>Winner <br>Takes All!</span></span>
-      <img ng-src="images/temp{{ player.userID }}.jpg" alt="Player one's avatar image.">
+      <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
     </div>
 
     <div class="score color_0">
@@ -40,8 +41,8 @@
 
     <div class="stats">
 
-      <ul class="cards" ng-show="cards[player.userID]">
-        <li ng-repeat="card in cards[player.userID]">{{ card[0] }} <span class="icon card[1]">card[1]</span></li>
+      <ul class="cards">
+        <li ng-show="cards[player.playerID]" ng-repeat="card in cards[player.playerID]">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
         <li class="amountBetting color_0">157</li>
       </ul>
 
@@ -52,7 +53,7 @@
   <button ng-click="startGame()">Start Game</button>
 
   <ul id="largeCards">
-    <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{ card[1] }}">{{ card[1] }}</span></li>
+    <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
   </ul>
 
   <div id="pot">

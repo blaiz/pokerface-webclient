@@ -1,0 +1,181 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000318}}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000328}}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000331}}
+body {
+  line-height: 1;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000334}}
+ol, ul {
+  list-style: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000337}}
+blockquote, q {
+  quotes: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000341}}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000345}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000350}}
+html {
+  background: url(images/bgd.jpg) repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.images/bgd.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/bgd.jpg', sizingMethod='scale')";
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000360}}
+html, body, #wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000367}}
+#wrapper {
+  margin: 0 auto;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000375}}
+body {
+  font-family: "ff-din-web", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000381}}
+.din {
+  font-family: "ff-din-web", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\0000387}}
+.brandon {
+  font-family: "brandon-grotesque", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003113}}
+.player_count_1 .loc_0 {
+  top: 14.2857143%;
+  left: 50%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003120}}
+.player_count_2 .loc_0, .player_count_3 .loc_0 {
+  top: 14.2857143%;
+  left: 50%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003125}}
+.player_count_2 .loc_1, .player_count_3 .loc_1 {
+  top: 26.6666667%;
+  left: 25%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003130}}
+.player_count_2 .loc_2, .player_count_3 .loc_2 {
+  top: 26.6666667%;
+  left: 75%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003137}}
+.player_count_4 .loc_0, .player_count_5 .loc_0 {
+  top: 14.2857143%;
+  left: 50%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003142}}
+.player_count_4 .loc_1, .player_count_5 .loc_1 {
+  top: 26.6666667%;
+  left: 33.33333333%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003147}}
+.player_count_4 .loc_2, .player_count_5 .loc_2 {
+  top: 26.6666667%;
+  left: 66.66666667%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003152}}
+.player_count_4 .loc_3, .player_count_5 .loc_3 {
+  top: 46.1904762%;
+  left: 16.66666666%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003157}}
+.player_count_4 .loc_4, .player_count_5 .loc_4 {
+  top: 46.1904762%;
+  left: 83.33333332%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003162}}
+.player_count_4 .loc_5, .player_count_5 .loc_5 {
+  top: 46.1904762%;
+  left: 83.33333334%;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003168}}
+.player {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  margin-left: -75px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003180}}
+.player:hover {
+  -webkit-transform: scale(1.5);
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/mrfletch\/Dropbox\/Share\/Poker\/pokerface\/public\/styles\.scss}line{font-family:\00003184}}
+.player img {
+  width: 100%;
+}

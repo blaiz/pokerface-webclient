@@ -35,12 +35,12 @@
 	    </li>
 	</ul> -->
 
-	<div id="wrapper" class="player_count_4">
+	<div id="wrapper" class="player_count_{{ state.players.length }}">
 
-		<div ng-repeat="player in state.players" class="player loc_0"><!-- add winner class to make winner -->
+		<div ng-repeat="player in state.players" class="player loc_{{ player.userID }}"><!-- add winner class to make winner -->
 			<div class="avatar">
 				<span class="winnerMessage"><span>Winner <br />Takes All!</span></span>
-				<img src="images/temp02.jpg" alt="Player one's avatar image.">
+				<img src="images/temp{{ player.userID }}.jpg" alt="Player one's avatar image.">
 			</div>
 
 			<div class="score color_0">
@@ -59,6 +59,8 @@
 			</div>
 
 		</div>
+
+        <button ng-click="startGame()">Start Game</button>
 
 		<ul id="largeCards">
 			<li>K <span class="icon club">Club</span></li>

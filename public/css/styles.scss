@@ -113,11 +113,6 @@ body {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
-
-    // super slider offset
-    .dialContainer {
-      top: 2px;
-    }
   }
 }
 
@@ -125,11 +120,6 @@ body {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
-
-    // super slider offset
-    .dialContainer {
-      top: 2px;
-    }
   }
 
   .loc_1 {
@@ -147,11 +137,6 @@ body {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
-
-    // super slider offset
-    .dialContainer {
-      top: 2px;
-    }
   }
 
   .loc_1 {
@@ -253,7 +238,9 @@ body {
   }
 
   // &.player_action {
-  //   top: 2px;
+  //   .dialContainer {
+  //     display: none;
+  //   }
   // }
 
   .avatar {
@@ -265,17 +252,33 @@ body {
     overflow: hidden;
   }
 
+  .dealer {
+    background-color: #de2b30;
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    color: #ffffff;
+    text-align: center;
+    padding: 5px;
+    top: -18px;
+    left: -18px;
+  }
+
   .dial {
     display: none !important;
   }
 
   .dialContainer {
-    display: inline;
-    width: 178px;
-    height: 200px;
-    position: absolute;
-    top: -14px;
-    left: -14px;
+    display: inline !important;
+    width: 178px !important;
+    height: 200px !important;
+    position: absolute !important;
+    top: -14px !important;
+    left: -14px !important;
 
     input {
       display: none;

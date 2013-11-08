@@ -20,9 +20,11 @@
 </head>
 <body ng-controller="MainCtrl">
 
-<li><button ng-click="fold()">Fold</button></li>
-<li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet</button></li>
-<li><button ng-click="showHand()">Show Hand</button></li>
+<ul ng-show="playerId == state.game.turn">
+  <li><button ng-click="fold()">Fold</button></li>
+  <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet {{ amount }}</button></li>
+  <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
+</ul>
 
 newPlayerId: {{ newPlayerId }}
 
@@ -53,13 +55,13 @@ newPlayerId: {{ newPlayerId }}
 
   </div>
 
-  <button ng-click="startGame()">Start Game</button>
+  <button id="startGame" ng-click="startGame()" ng-hide="state.game">Start Game</button>
 
-  <ul id="largeCards">
+  <ul id="largeCards" ng-show="state.game">
     <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
   </ul>
 
-  <div id="pot">
+  <div id="pot" ng-show="state.game">
     <h1>{{ state.game.pot }}</h1>
   </div>
 

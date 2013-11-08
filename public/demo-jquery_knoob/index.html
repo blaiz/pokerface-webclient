@@ -1,0 +1,321 @@
+<html lang="en">
+<head>
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="google-site-verification" content="CiRe_UywB8bktB_J5oUF6wTLCjnhLbUlVTUNke4EHYw"> -->
+    <title>jQuery Knob demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="jQuery Knob demo" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script src="file:///Users/nidhisankhala/Downloads/demo-jquery_knoob/jquery.knob.js"></script>
+                <!-- BuySellAds Ad Code -->
+     <script type="text/javascript">
+    // (function(){
+    // var bsa = document.createElement('script');
+    //     bsa.type = 'text/javascript';
+    //     bsa.async = true;
+    //     bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+    //     (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+    // })();
+    </script>
+    <!-- <script type="text/javascript" async="" src="http://s3.buysellads.com/ac/bsa.js"></script> -->
+    <!-- End BuySellAds Ad Code -->
+    <link href="file:///Users/nidhisankhala/Downloads/demo-jquery_knoob/layout.css" rel="stylesheet">
+<!-- <script type="text/javascript" id="_bsap_js_e84bcfc95c9e3aabf0e9d97fb3411cf5" src="http://s3.buysellads.com/r/s_e84bcfc95c9e3aabf0e9d97fb3411cf5.js?v=1383804000000" async="async"></script><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" src="http://stats.buysellads.com/country.php"></script><style type="text/css" id="bsa_css">.one{position:relative}.one .bsa_it_ad{display:block;padding:15px;border:1px solid #e1e1e1;background:#f9f9f9;font-family:helvetica,arial,sans-serif;line-height:100%;position:relative}.one .bsa_it_ad a{text-decoration:none}.one .bsa_it_ad a:hover{text-decoration:none}.one .bsa_it_ad .bsa_it_t{display:block;font-size:12px;font-weight:bold;color:#212121;line-height:125%;padding:0 0 5px 0}.one .bsa_it_ad .bsa_it_d{display:block;font-size:11px;color:#434343;font-size:12px;line-height:135%}.one .bsa_it_ad .bsa_it_i{float:left;margin:0 15px 10px 0}.one .bsa_it_p{display:block;text-align:right;position:absolute;bottom:10px;right:15px}.one .bsa_it_p a{font-size:10px;color:#666;text-decoration:none}.one .bsa_it_ad .bsa_it_p a:hover{font-style:italic}</style> -->
+</head>
+<body class="layout-document">
+        <script>
+        $(function() {
+
+            $(".knob").knob({
+                /*change : function (value) {
+                    //console.log("change : " + value);
+                },
+                release : function (value) {
+                    console.log("release : " + value);
+                },
+                cancel : function () {
+                    console.log("cancel : " + this.value);
+                },*/
+                draw : function () {
+
+                    // "tron" case
+                    if(this.$.data('skin') == 'tron') {
+
+                        var a = this.angle(this.cv)  // Angle
+                            , sa = this.startAngle          // Previous start angle
+                            , sat = this.startAngle         // Start angle
+                            , ea                            // Previous end angle
+                            , eat = sat + a                 // End angle
+                            , r = true;
+
+                        this.g.lineWidth = this.lineWidth;
+
+                        this.o.cursor
+                            && (sat = eat - 0.3)
+                            && (eat = eat + 0.3);
+
+                        if (this.o.displayPrevious) {
+                            ea = this.startAngle + this.angle(this.value);
+                            this.o.cursor
+                                && (sa = ea - 0.3)
+                                && (ea = ea + 0.3);
+                            this.g.beginPath();
+                            this.g.strokeStyle = this.previousColor;
+                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
+                            this.g.stroke();
+                        }
+
+                        this.g.beginPath();
+                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor ;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
+                        this.g.stroke();
+
+                        this.g.lineWidth = 2;
+                        this.g.beginPath();
+                        this.g.strokeStyle = this.o.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                        this.g.stroke();
+
+                        return false;
+                    }
+                }
+            });
+
+            // Example of infinite knob, iPod click wheel
+            var v, up=0,down=0,i=0
+                ,$idir = $("div.idir")
+                ,$ival = $("div.ival")
+                ,incr = function() { i++; $idir.show().html("+").fadeOut(); $ival.html(i); }
+                ,decr = function() { i--; $idir.show().html("-").fadeOut(); $ival.html(i); };
+            $("input.infinite").knob(
+                                {
+                                min : 0
+                                , max : 20
+                                , stopper : false
+                                , change : function () {
+                                                if(v > this.cv){
+                                                    if(up){
+                                                        decr();
+                                                        up=0;
+                                                    }else{up=1;down=0;}
+                                                } else {
+                                                    if(v < this.cv){
+                                                        if(down){
+                                                            incr();
+                                                            down=0;
+                                                        }else{down=1;up=0;}
+                                                    }
+                                                }
+                                                v = this.cv;
+                                            }
+                                });
+        });
+    </script>
+    <style>
+        p{font-size: 30px; line-height: 30px}
+        div.demo{text-align: center; width: 280px; float: left}
+        div.demo > p{font-size: 20px}
+    </style>
+    <div style="width:100%;font-size:40px;letter-spacing:-8px;">
+        <!-- <h1>jQuery Knob</h1> -->
+    </div>
+   <!--  <div>
+        <p>Nice, downward compatible, touchable, jQuery dial. <a href="http://flattr.com/thing/674900/jQuery-Knob" target="_blank"><img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"></a></p>
+        <p style="font-size: 20px">* implemented interactions : mouse click and wheel mouse, keyboard (on focus) and fingers (touch events)</p>
+    </div> -->
+    <div class="demo">
+        <div style="display:inline;width:100px;height:200px;">
+            <canvas width="100" height="200px"></canvas>
+            <input class="knob" data-width="100" data-displayinput="true" value="35" style="display: none; width: 0px; visibility: hidden;">
+        </div>
+    </div>
+    <!-- <div class="demo">
+        <p>× 'cursor' mode</p>
+        <pre>data-width="150"
+data-cursor=true
+data-thickness=.3
+data-fgColor="#222222"
+        </pre>
+        <div style="display:inline;width:150px;height:200px;"><canvas width="150" height="200px"></canvas><input class="knob" data-width="150" data-cursor="true" data-fgcolor="#222222" data-thickness=".3" value="29" style="width: 79px; height: 50px; position: absolute; vertical-align: middle; margin-top: 50px; margin-left: -114px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 30px; line-height: normal; font-family: Arial; text-align: center; color: rgb(34, 34, 34); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div> -->
+    <!-- <div class="demo">
+        <p>× Display previous value</p>
+        <pre>data-displayPrevious=true
+        </pre>
+        <div style="display:inline;width:200px;height:200px;"><canvas width="200" height="200px"></canvas><input class="knob" data-width="200" data-min="-100" data-displayprevious="true" value="44" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(135, 206, 235); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div> -->
+   <!--  <div style="clear:both"></div>
+    <div class="demo">
+        <p>× Angle offset</p>
+        <pre>data-angleOffset=90
+data-linecap=round
+        </pre>
+        <div style="display:inline;width:200px;height:200px;"><canvas width="200" height="200px"></canvas><input class="knob" data-angleoffset="90" data-linecap="round" value="35" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(135, 206, 235); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div> -->
+    <!-- <div class="demo">
+        <p>× Angle offset and arc</p>
+        <pre>data-fgColor="#66CC66"
+data-angleOffset=-125
+data-angleArc=250
+        </pre>
+        <div style="display:inline;width:200px;height:200px;"><canvas width="200" height="200px"></canvas><input class="knob" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#66EE66" value="35" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(102, 238, 102); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div> -->
+    <!-- <div class="demo">
+        <p>× 5-digit values, step 1000</p>
+        <pre>data-step="1000"
+            data-min="-15000"
+            data-max="15000"
+            data-displayPrevious=true
+                    </pre>
+        <div style="display:inline;width:200px;height:200px;"><canvas width="200" height="200px"></canvas><input class="knob" data-min="-15000" data-displayprevious="true" data-max="15000" data-step="1000" value="-11000" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 28px; line-height: normal; font-family: Arial; text-align: center; color: rgb(135, 206, 235); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div> -->
+   <!--  <div style="clear:both"></div>
+    <div style="text-align: center">
+        <p style="font-size: 20px">× Overloaded 'draw' method</p>
+    </div> -->
+   <!--  <div style="background-color: #222; height: 340px">
+        <div class="demo" style="background-color:#222; color:#FFF;">
+            <pre>data-width="75"
+                data-fgColor="#ffec03"
+                data-skin="tron"
+                data-thickness=".2"
+                data-displayPrevious=true
+            </pre>
+            <div style="display:inline;width:75px;height:200px;"><canvas width="75" height="200px"></canvas><input class="knob" data-width="75" data-displayprevious="true" data-fgcolor="#ffec03" data-skin="tron" data-cursor="true" value="75" data-thickness=".2" style="width: 41px; height: 25px; position: absolute; vertical-align: middle; margin-top: 25px; margin-left: -58px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 15px; line-height: normal; font-family: Arial; text-align: center; color: rgb(255, 236, 3); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+        </div>
+        <div class="demo" style="background-color:#222; color:#FFF;">
+            <pre>data-width="150"
+                data-fgColor="#ffec03"
+                data-skin="tron"
+                data-thickness=".2"
+                data-displayPrevious=true
+            </pre>
+            <div style="display:inline;width:150px;height:200px;"><canvas width="150" height="200px"></canvas><input class="knob" data-width="150" data-displayprevious="true" data-fgcolor="#ffec03" data-skin="tron" data-thickness=".2" value="75" style="width: 79px; height: 50px; position: absolute; vertical-align: middle; margin-top: 50px; margin-left: -114px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 30px; line-height: normal; font-family: Arial; text-align: center; color: rgb(255, 236, 3); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+        </div>
+        <div class="demo" style="background-color:#222; color:#FFF;">
+            <pre>data-width="150"
+                data-fgColor="#C0ffff"
+                data-skin="tron"
+                data-thickness=".1"
+                data-angleOffset="180"
+            </pre>
+            <div style="display:inline;width:150px;height:200px;"><canvas width="150" height="200px"></canvas><input class="knob" data-width="150" data-angleoffset="180" data-fgcolor="#C0ffff" data-skin="tron" data-thickness=".1" value="35" style="width: 79px; height: 50px; position: absolute; vertical-align: middle; margin-top: 50px; margin-left: -114px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 30px; line-height: normal; font-family: Arial; text-align: center; color: rgb(192, 255, 255); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+        </div>
+    </div> -->
+    <script>
+    function clock() {
+        var $s = $(".second"),
+            $m = $(".minute"),
+            $h = $(".hour");
+            d = new Date(),
+            s = d.getSeconds(),
+            m = d.getMinutes(),
+            h = d.getHours();
+        $s.val(s).trigger("change");
+        $m.val(m).trigger("change");
+        $h.val(h).trigger("change");
+        setTimeout("clock()", 1000);
+    }
+    clock();
+    </script>
+
+    <script>
+    $('.knob')
+    .val(1)
+    .trigger('change');
+    </script>
+    <!-- <div class="demo" style="color:#EEE;background:#222;height:420px;width:100%">
+        <p>× Superpose (unreadable futuristic clock)</p>
+        <div style="position:relative;width:350px;margin:auto">
+            <div style="position:absolute;left:10px;top:10px">
+                <div style="display:inline;width:300px;height:300px;"><canvas width="300" height="300px"></canvas><input class="knob hour" data-min="0" data-max="24" data-bgcolor="#333" data-fgcolor="#ffec03" data-displayinput="false" data-width="300" data-height="300" data-thickness=".3" style="display: none; width: 0px; visibility: hidden;"></div>
+            </div>
+            <div style="position:absolute;left:60px;top:60px">
+                <div style="display:inline;width:200px;height:200px;"><canvas width="200" height="200px"></canvas><input class="knob minute" data-min="0" data-max="60" data-bgcolor="#333" data-displayinput="false" data-width="200" data-height="200" data-thickness=".45" style="display: none; width: 0px; visibility: hidden;"></div>
+            </div>
+            <div style="position:absolute;left:110px;top:110px">
+                <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob second" data-min="0" data-max="60" data-bgcolor="#333" data-fgcolor="rgb(127, 255, 0)" data-displayinput="false" data-width="100" data-height="100" data-thickness=".3" style="display: none; width: 0px; visibility: hidden;"></div>
+            </div>
+        </div>
+    </div> -->
+   <!--  <div style="clear:both"></div>
+    <div class="demo">
+        <p>× Readonly</p>
+        <pre>data-thickness=".4"
+data-fgColor="chartreuse"
+data-readOnly=true
+        </pre>
+        <div style="display:inline;width:200px;height:200px;"><canvas width="200" height="200px"></canvas><input class="knob" data-fgcolor="chartreuse" data-thickness=".4" data-readonly="true" value="22" readonly="readonly" style="width: 104px; height: 66px; position: absolute; vertical-align: middle; margin-top: 66px; margin-left: -152px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 40px; line-height: normal; font-family: Arial; text-align: center; color: rgb(127, 255, 0); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div>
+    <div class="demo">
+        <p>× Dynamic</p>
+        <pre>data-width="200"
+        </pre>
+        <input type="button" onclick="$('.knob-dyn').knob();" value="knobify!">
+        <input type="text" class="knob-dyn" data-width="200" data-cursor="true" value="56">
+        <pre>data-width="50"
+data-cursor=true
+        </pre>
+        <input type="button" onclick="$('.knob-dyn2').knob();" value="knobify!">
+        <input type="text" class="knob-dyn2" data-width="50" data-thickness=".4" value="56">
+    </div>
+    <div class="demo" style="height:440px;width:300px">
+        <p>× Infinite || iPod click wheel</p>
+        <div style="float:left;width:180px;height:320px;padding:20px;background-color:#EEEEEE;text-align:center;">
+            <pre>data-width="150"
+data-cursor=true
+data-thickness=".5"
+data-fgColor="#AAAAAA"
+data-bgColor="#FFFFFF"
+data-displayInput="false"
++ some code
+            </pre>
+            <div style="display:inline;width:150px;height:200px;"><canvas width="150" height="200px"></canvas><input class="infinite" data-width="150" data-thickness=".5" data-fgcolor="#AAAAAA" data-bgcolor="#FFFFFF" data-displayinput="false" data-cursor="true" style="display: none; width: 0px; visibility: hidden;"></div>
+        </div>
+        <div style="float:left;margin-top:200px;">
+            <div class="ival" style="width:80px;text-align:center;font-size:50px;color:#AAA">0</div>
+            <div class="idir" style="width:80px;text-align:center;font-size:50px;"></div>
+        </div>
+    </div>
+    <div style="clear:both"></div>
+    <div id="big" class="demo" style="height:800px;width:100%">
+        <p>× Big !</p>
+        <pre>data-width="700"
+        </pre>
+        <div style="display:inline;width:700px;height:700px;"><canvas width="700" height="700px"></canvas><input class="knob" data-min="-100" data-max="100" data-width="700" data-height="700" data-thickness=".3" data-cursor="true" style="width: 354px; height: 233px; position: absolute; vertical-align: middle; margin-top: 233px; margin-left: -527px; border: 0px; background-image: none; font-weight: bold; font-style: normal; font-variant: normal; font-size: 140px; line-height: normal; font-family: Arial; text-align: center; color: rgb(135, 206, 235); padding: 0px; -webkit-appearance: none; background-position: initial initial; background-repeat: initial initial;"></div>
+    </div>
+    <div style="clear:both"></div>
+    <div style="padding:30px; margin-top:30px;">
+        <p style="font-size:20px;">jQuery Knob is © 2012 Anthony Terrien and dual licensed under the MIT or GPL licenses.</p>
+    </div> -->
+    <div style="border: 0 none; position: fixed; right: 0; top: 40px;"><a href="https://github.com/aterrien/jQuery-Knob" target="_blank"><img src="/img/github-ribbon.png" style="border: 0 none;"></a></div>
+        <!-- <div class="header">
+        <a href="../"><img width="16px" height="16px" align="absmiddle" src="https://secure.gravatar.com/avatar/e2139a6a040af9bf741e35caf2d05f11" alt="Home" title="Home"></a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;</div> -->
+        <!-- <div style="width:100%; margin: 20px 0px" id="bsap_1277867" class="bsap_1277867 bsap"><div class="bsa_it one"><div class="bsa_it_ad ad1 odd" id="bsa_3634400"><a href="http://stats.buysellads.com/click.go?z=1277867&amp;b=3634400&amp;g=&amp;s=&amp;sw=1440&amp;sh=900&amp;br=chrome,29,mac&amp;r=0.27614389499649405&amp;link=http://www.kendoui.com/?utm_source=AdPacks&amp;utm_medium=banner&amp;utm_campaign=BSA_KendoUI_AdPacks-DvptAd_130x100" onmouseover="window.status = 'http://www.kendoui.com/?utm_source=AdPacks&amp;utm_medium=banner&amp;utm_campaign=BSA_KendoUI_AdPacks-DvptAd_130x100'; return true;" onmouseout="window.status=''; return true;" target="_blank"><span class="bsa_it_i"><img src="http://s3.buysellads.com/1280964/177801-1372697160.jpg" width="130" height="100" alt="HTML5/JS Framework"></span></a><a href="http://stats.buysellads.com/click.go?z=1277867&amp;b=3634400&amp;g=&amp;s=&amp;sw=1440&amp;sh=900&amp;br=chrome,29,mac&amp;r=0.9848077464848757&amp;link=http://www.kendoui.com/?utm_source=AdPacks&amp;utm_medium=banner&amp;utm_campaign=BSA_KendoUI_AdPacks-DvptAd_130x100" onmouseover="window.status = 'http://www.kendoui.com/?utm_source=AdPacks&amp;utm_medium=banner&amp;utm_campaign=BSA_KendoUI_AdPacks-DvptAd_130x100'; return true;" onmouseout="window.status=''; return true;" target="_blank"><span class="bsa_it_t">HTML5/JS Framework</span><span class="bsa_it_d">Everything you need to build HTML5 sites &amp; mobile apps. Get your free trial now!</span></a><div style="clear:both"></div></div><span class="bsa_it_p"><a href="http://buysellads.com/buy/detail/149095/zone/1277867?utm_source=site_149095&amp;utm_medium=website&amp;utm_campaign=imagetext&amp;utm_content=zone_1277867">ads by BSA</a></span></div></div> -->
+    <!-- <div style="width:100%; text-align: center">
+        <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-0235133384633229" data-ad-slot="8947220813" data-adsbygoogle-status="done"><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="250" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script type="text/javascript">
+ (adsbygoogle = window.adsbygoogle || []).push({});
+
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script><ins style="display:inline-table;border:none;height:undefinedpx;margin:0;padding:0;position:relative;visibility:visible;width:undefinedpx;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:undefinedpx;margin:0;padding:0;position:relative;visibility:visible;width:undefinedpx;background-color:transparent"><iframe width="undefined" height="undefined" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+    </div>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3008949-6']);
+        _gaq.push(['_trackPageview']);
+    </script>
+    <script type="text/javascript">
+        (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+        })();
+    </script>
+ -->
+
+</body></html>

@@ -781,8 +781,11 @@ function progress (table) {
                 table.game.roundName = 'Flop';
                 table.AddEvent('Dealer', 'Dealing flop');
                 table.game.deck.pop(); //Burn a card
-                // Set the turn to the first position after the dealer
-                table.game.turn = table.game.dealer + 1;
+                // Set the turn to the first position after the big blind
+                table.game.turn = table.game.bigBlind + 1;
+                if (table.game.turn >= table.players.length) {
+                    table.game.turn -= table.players.length
+                }
 
                 for (i = 0; i < 3; i += 1) { //Turn three cards
                     table.game.board.push(table.game.deck.pop());
@@ -916,7 +919,7 @@ Table.prototype.NewRound = function() {
         this.game.turn = this.game.dealer + 3;
     }
 
-    if (this.game.turn > this.players.length) {
+    if (this.game.turn >= this.players.length) {
         this.game.turn -= this.players.length;
     }
 
@@ -1105,7 +1108,7 @@ console.log('-------------------------------------------------------------------
 console.log(bet);
     for (var i = 0; i < this.table.players.length; i += 1) {
         if (this === this.table.players[i]) {
-            this.table.game.bets[i] += bet;
+            this.table.game.bets[i] += parseInt(bet, 10);
             this.table.players[i].chips -= bet;
             this.acted = true;
         }

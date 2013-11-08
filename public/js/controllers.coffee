@@ -2,6 +2,10 @@
 
 @app.controller "MainCtrl", ($scope, socket) ->
     $scope.cards = []
+    $scope.users = {
+      currentPlayers: []
+      newPlayer: null
+    }
 
     $scope.renamePlayer = (name) ->
       socket.emit "renamePlayer", name
@@ -32,14 +36,33 @@
       console.log "You are player #", playerId
 
     socket.on "updateState", (state) ->
-      $scope.state = JSON.parse(state)
+      $scope.state = state
+      $scope.cards = [] unless $scope.state.game? # if the game hasn't started yet, let's clear all cards
       console.log "New state: ", $scope.state
+
+      if $scope.users.currentPlayers.length == 0
+        $scope.users.currentPlayers[0] = $scope.playerId
+      else
+        for player in $scope.users.currentPlayers
+          console.log($scope.users.currentPlayers)
+          if $scope.users.currentPlayers[player].playerID == $scope.state.players[$scope.state.players.length - 1]
+            break
+
+      $scope.users.newPlayer = $scope.state.players[$scope.state.players.length - 1]
+
+      console.log('$scope.users.currentPlayers: ', $scope.users.currentPlayers)
+
+      i = $scope.users.currentPlayers.length
+      $scope.users.currentPlayers[i] = $scope.playerId
+
+
+      # if $scope.state.players?.length isnt state.players.length
+      #   console.log('users: ', $scope.state.players)
 
     socket.on "addHand", (cards) ->
       $scope.cards[$scope.playerId] = cards
       console.log "New hand: ", cards
 
     socket.on "showHand", (data) ->
-      data = JSON.parse(data)
       $scope.cards[data.playerId] = data.cards
       console.log "Hand for player #{data.playerId}:", data.cards

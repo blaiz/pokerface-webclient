@@ -8,19 +8,26 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
   <script src="/demo-jquery_knoob/jquery.knob.js"></script>
-  <script src="/js/controllers.js"></script>
-  <script src="/js/factories.js"></script>
-  <script src="/js/directive1.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/factories.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
 
   <!-- styling -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link href="/demo-jquery_knoob/layout.css" rel="stylesheet">
 
+  <script src="js/controllers.js"></script>
+  <script src="js/factories.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
 
   <!-- typography -->
   <script type="text/javascript" src="//use.typekit.net/nyf5kng.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </head>
+
 <body ng-controller="MainCtrl" class="layout-document">
    <script>
   //       $(function() {
@@ -204,5 +211,53 @@
     // .val(1)
     // .trigger('change');
     </script>
+=======
+<body ng-controller="MainCtrl">
+
+<ul ng-show="playerId == state.game.turn">
+  <li><button ng-click="fold()">Fold</button></li>
+  <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet {{ amount }}</button></li>
+  <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
+</ul>
+
+<div id="wrapper" class="player_count_{{ state.players.length }}">
+
+  <!-- add winner class to make winner -->
+  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{trans_out: player.playerID == users.newPlayer.playerID, player_action: player.playerID == state.game.turn, folded: player.folded}">
+    <div class="dealer" ng-show="player.playerID == state.game.dealer">Dealer</div>
+
+    <div class="avatar">
+      <span class="winnerMessage"><span>Winner <br>Takes All!</span></span>
+      <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
+    </div>
+
+    <div class="score color_0">
+      <h1>{{ player.chips }}</h1>
+      <h2 class="info">stack total</h2>
+    </div>
+
+    <div class="stats">
+
+      <ul class="cards">
+        <li ng-show="cards[player.playerID]" ng-repeat="card in cards[player.playerID]">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
+        <li class="amountBetting color_0">{{ state.game.bets[player.playerID] }}</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  <button id="startGame" ng-click="startGame()" ng-hide="state.game">Start Game</button>
+
+  <ul id="largeCards" ng-show="state.game">
+    <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
+  </ul>
+
+  <div id="pot" ng-show="state.game">
+    <h1>{{ state.game.pot }}</h1>
+  </div>
+
+</div><!-- wrapper -->
+
 </body>
 </html>

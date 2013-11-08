@@ -24,12 +24,6 @@
 
 <body ng-controller="MainCtrl">
 
-<script>
-  $(function() {
-    $(".dial").knob();
-  });
-</script>
-
   <script>
     function clock() {
       var $s = $(".second"),
@@ -45,21 +39,15 @@
       setTimeout("clock()", 1000);
     }
     clock();
-    </script>
+  </script>
 
-  <style>
-    p { font-size: 30px; line-height: 30px }
-    div.demo { text-align: center; width: 280px; float: left }
-    div.demo > p { font-size: 20px }
-  </style>
+  <ul ng-show="playerId == state.game.turn">
+    <li><button ng-click="fold()">Fold</button></li>
+    <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet {{ amount }}</button></li>
+    <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
+  </ul>
 
-<ul ng-show="playerId == state.game.turn">
-  <li><button ng-click="fold()">Fold</button></li>
-  <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet {{ amount }}</button></li>
-  <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
-</ul>
-
-<div id="wrapper" class="player_count_{{ state.players.length }}">
+  <div id="wrapper" class="player_count_{{ state.players.length }}">
 
   <!-- add winner class to make winner -->
   <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{trans_out: player.playerID == newPlayerId, player_action: player.playerID == state.game.turn, folded: player.folded}">
@@ -72,7 +60,7 @@
     </div>
 
     <div class="dialContainer">
-      <input knob type="text" value="{{ state.game.bets[player.playerID] }}" class="dial" data-width="178">
+      <input knob type="text" value="0" class="dial" data-width="178">
     </div>
 
     <div class="score color_0">

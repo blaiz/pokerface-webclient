@@ -56,10 +56,12 @@
   <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
 </ul>
 
+newPlayerId: {{ newPlayerId }}
+
 <div id="wrapper" class="player_count_{{ state.players.length }}">
 
   <!-- add winner class to make winner -->
-  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{trans_out: player.playerID == users.newPlayer.playerID, player_action: player.playerID == state.game.turn, folded: player.folded}">
+  <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{trans_out: player.playerID == newPlayerId, player_action: player.playerID == state.game.turn, folded: player.folded}">
     <div class="dealer" ng-show="player.playerID == state.game.dealer">Dealer</div>
 
     <div class="avatar">

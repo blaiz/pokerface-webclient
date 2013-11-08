@@ -226,6 +226,17 @@ body {
     overflow: hidden;
   }
 
+  .demo {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    position: absolute;
+    top: 76px;
+    left: -65px;
+    z-index: 150;
+  }
+
   .score {
     font-family: "brandon-grotesque",sans-serif;
     font-style: normal;
@@ -305,9 +316,6 @@ body {
     }
   }
 
-  &:hover {
-    -webkit-transform: scale(1.35);
-  }
 
   img {
     width: 100%;

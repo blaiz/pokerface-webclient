@@ -4,4 +4,4 @@
 
 @app.directive 'fadeInPlayer', ->
   (scope, elem, attrs) ->
-      scope.newPlayerId = null
+    scope.newPlayerId = null

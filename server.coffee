@@ -1,6 +1,5 @@
 io = require("socket.io").listen 8081
 poker = require "./vendor/node-poker"
-extend = require('util')._extend
 
 clients = {}
 players = []

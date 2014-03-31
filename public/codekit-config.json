@@ -2,15 +2,6 @@
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
   "creatorBuild" : "8376",
   "files" : {
-    "\/css\/styles.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/styles.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
     "\/js\/factories.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -43,15 +34,6 @@
       "outputAbbreviatedPath" : "\/images\/heart.png",
       "initialSize" : 1342,
       "fileType" : 8192
-    },
-    "\/demo-jquery_knoob\/layout.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/demo-jquery_knoob\/layout.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/images\/temp4.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -87,16 +69,16 @@
       "outputStyle" : 0,
       "fileType" : 32
     },
-    "\/images\/temp1.jpg" : {
+    "\/images\/diamondLarge.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "inputAbbreviatedPath" : "\/images\/diamondLarge.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
-      "initialSize" : 53401,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/images\/diamondLarge.png",
+      "initialSize" : 1389,
+      "fileType" : 8192
     },
     "\/css\/styles.scss" : {
       "ignoreWasSetByUser" : 0,
@@ -144,16 +126,16 @@
       "outputAbbreviatedPath" : "\/js\/filters-ck.js",
       "fileType" : 64
     },
-    "\/images\/diamondLarge.png" : {
+    "\/images\/temp1.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/diamondLarge.png",
+      "inputAbbreviatedPath" : "\/images\/temp1.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/diamondLarge.png",
-      "initialSize" : 1389,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/images\/temp1.jpg",
+      "initialSize" : 53401,
+      "fileType" : 4096
     },
     "\/images\/bgd.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -177,17 +159,6 @@
       "initialSize" : 23430,
       "fileType" : 4096
     },
-    "\/images\/club.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/club.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/club.png",
-      "initialSize" : 1327,
-      "fileType" : 8192
-    },
     "\/images\/clubLarge.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -197,6 +168,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/images\/clubLarge.png",
       "initialSize" : 1356,
+      "fileType" : 8192
+    },
+    "\/images\/club.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/club.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/club.png",
+      "initialSize" : 1327,
       "fileType" : 8192
     },
     "\/config.rb" : {
@@ -219,17 +201,16 @@
       "initialSize" : 1349,
       "fileType" : 8192
     },
-    "\/js\/filters.coffee" : {
+    "\/images\/temp0.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
-      "outputPathIsSetByUser" : 1,
-      "inputAbbreviatedPath" : "\/js\/filters.coffee",
-      "checkOutputStyle" : 0,
-      "minifyOutput" : 0,
-      "outputAbbreviatedPath" : "\/js\/filters.js",
-      "outputStyle" : 0,
-      "fileType" : 32
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/temp0.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/temp0.jpg",
+      "initialSize" : 16797,
+      "fileType" : 4096
     },
     "\/js\/controllers.js" : {
       "ignoreWasSetByUser" : 0,
@@ -262,16 +243,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/temp0.jpg" : {
+    "\/js\/filters.coffee" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/temp0.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/temp0.jpg",
-      "initialSize" : 16797,
-      "fileType" : 4096
+      "outputPathIsSetByUser" : 1,
+      "inputAbbreviatedPath" : "\/js\/filters.coffee",
+      "checkOutputStyle" : 0,
+      "minifyOutput" : 0,
+      "outputAbbreviatedPath" : "\/js\/filters.js",
+      "outputStyle" : 0,
+      "fileType" : 32
     },
     "\/js\/factories.coffee" : {
       "ignoreWasSetByUser" : 0,
@@ -285,15 +267,15 @@
       "outputStyle" : 1,
       "fileType" : 32
     },
-    "\/demo-jquery_knoob\/jquery.knob.js" : {
+    "\/js\/jquery.knob.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/demo-jquery_knoob\/jquery.knob.js",
+      "inputAbbreviatedPath" : "\/js\/jquery.knob.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/demo-jquery_knoob\/jquery.knob-ck.js",
+      "outputAbbreviatedPath" : "\/js\/jquery.knob-ck.js",
       "fileType" : 64
     },
     "\/images\/temp2.jpg" : {
@@ -306,6 +288,15 @@
       "outputAbbreviatedPath" : "\/images\/temp2.jpg",
       "initialSize" : 16950,
       "fileType" : 4096
+    },
+    "\/css\/styles.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/styles.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     }
   },
   "manualImportLinks" : [

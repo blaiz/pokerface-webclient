@@ -3,40 +3,60 @@
 <head>
   <title>PokerFace</title>
 
-  <!-- angular -->
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/factories.js"></script>
-  <script src="js/directives.js"></script>
-  <script src="js/filters.js"></script>
-
   <!-- styling -->
   <link rel="stylesheet" href="css/styles.css">
 
   <!-- typography -->
   <script type="text/javascript" src="//use.typekit.net/nyf5kng.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!-- angular -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <script src="js/jquery.knob.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/factories.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/filters.js"></script>
+
 </head>
+
 <body ng-controller="MainCtrl">
 
-<ul ng-show="playerId == state.game.turn">
-  <li><button ng-click="fold()">Fold</button></li>
-  <li><input type="text" ng-model="amount"><button ng-click="bet(amount)">Bet {{ amount }}</button></li>
-  <!--<li><button ng-click="showHand()">Show Hand</button></li>-->
-</ul>
+  <script>
+    function clock() {
+      var $s = $(".second"),
+          $m = $(".minute"),
+          $h = $(".hour");
+          d = new Date(),
+          s = d.getSeconds(),
+          m = d.getMinutes(),
+          h = d.getHours();
+      $s.val(s).trigger("change");
+      $m.val(m).trigger("change");
+      $h.val(h).trigger("change");
+      setTimeout("clock()", 1000);
+    }
+    clock();
+  </script>
 
-newPlayerId: {{ newPlayerId }}
-
-<div id="wrapper" class="player_count_{{ state.players.length }}">
+  <div id="wrapper" class="player_count_{{ state.players.length }}">
 
   <!-- add winner class to make winner -->
   <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ player.playerID }}" ng-class="{trans_out: player.playerID == newPlayerId, player_action: player.playerID == state.game.turn, folded: player.folded}">
-    <div class="dealer" ng-show="player.playerID == state.game.dealer">Dealer</div>
+    <div class="dealer" ng-show="player.playerID == state.game.dealer">d</div>
 
     <div class="avatar">
+      <span class="foldMessage"><span>Fold</span></span>
       <span class="winnerMessage"><span>Winner <br>Takes All!</span></span>
       <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
+    </div>
+
+    <div class="dialContainer">
+      <input knob type="text" value="0" class="dial" data-width="178">
+      <button class="betButton" ng-click="bet(state.game.bets[player.playerID])" ng-show="state.game && state.game.turn == playerId">Bet {{ state.game.bets[player.playerID] }}</button>
+      <button class="fold" ng-click="fold()" ng-show="state.game && state.game.turn == playerId">Fold</button>
     </div>
 
     <div class="score color_0">

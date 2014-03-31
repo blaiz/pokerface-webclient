@@ -14,7 +14,6 @@
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */
 (function($) {
-
     /**
      * Kontrol library
      */
@@ -101,7 +100,7 @@
                     cursor : (this.$.data('cursor') === true && 30)
                                 || this.$.data('cursor')
                                 || 0,
-                    thickness : this.$.data('thickness') || 0.20,
+                    thickness : this.$.data('thickness') || 0.10,
                     lineCap : this.$.data('linecap') || 'butt',
                     width : this.$.data('width') || 200,
                     height : this.$.data('height') || 200,

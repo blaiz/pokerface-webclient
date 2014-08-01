@@ -8,7 +8,7 @@
  # Controller of the pokerfaceWebclientApp
 ###
 angular.module('pokerfaceWebclientApp')
-  .controller 'MainCtrl', ($scope, socket) ->
+  .controller 'MainCtrl', ($scope, socket, $cookies) ->
     $scope.cards = []
     $scope.newPlayerId = null
 
@@ -40,7 +40,7 @@ angular.module('pokerfaceWebclientApp')
       console.log message
 
     socket.on "setPlayerId", (playerId) ->
-      $scope.playerId = playerId
+      $scope.playerId = $cookies.playerId = playerId
       console.log "You are player #", playerId
 
     socket.on "updateState", (state) ->

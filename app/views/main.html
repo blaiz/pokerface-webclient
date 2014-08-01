@@ -29,8 +29,8 @@
 
     <div class="dialContainer">
       <input knob type="text" value="0" class="dial" data-width="178">
-      <button class="betButton" ng-click="bet(state.game.bets[player.playerID])" ng-show="state.game && state.game.turn == playerId">Bet {{ state.game.bets[player.playerID] }}</button>
-      <button class="fold" ng-click="fold()" ng-show="state.game && state.game.turn == playerId">Fold</button>
+      <button class="betButton" ng-click="bet(state.game.bets[player.playerID])" ng-show="state.game && state.game.turn == playerId && player.playerID == playerId">Bet {{ state.game.bets[player.playerID] }}</button>
+      <button class="fold" ng-click="fold()" ng-show="state.game && state.game.turn == playerId && player.playerID == playerId">Fold</button>
     </div>
 
     <div class="score color_0">

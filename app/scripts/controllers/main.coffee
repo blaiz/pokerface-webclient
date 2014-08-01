@@ -25,7 +25,7 @@ angular.module('pokerfaceWebclientApp')
       socket.emit "renamePlayer", name
 
     $scope.startGame = ->
-      socket.emit "startGame",
+      socket.emit "startGame"
 
     $scope.fold = ->
       socket.emit "fold"
@@ -104,7 +104,6 @@ angular.module('pokerfaceWebclientApp')
           video:
             mandatory: {}
             optional: []
-
           audio: true
         , (stream) ->
           $scope.$apply ->
@@ -131,5 +130,3 @@ angular.module('pokerfaceWebclientApp')
           videoStreams.push(stream)
 
     PeerConnection = window.PeerConnection or window.webkitPeerConnection00 or window.webkitRTCPeerConnection or window.mozRTCPeerConnection or window.RTCPeerConnection
-
-    #angular.element init

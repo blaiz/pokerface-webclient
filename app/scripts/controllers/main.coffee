@@ -27,7 +27,7 @@ angular.module('pokerfaceWebclientApp')
     $scope.startGame = ->
       socket.emit "startGame",
 
-        $scope.fold = ->
+    $scope.fold = ->
       socket.emit "fold"
 
     ###

@@ -24,7 +24,7 @@
     <div class="avatar">
       <span class="foldMessage"><span>Fold</span></span>
       <span class="winnerMessage"><span>Winner <br>Takes All!</span></span>
-      <img ng-src="images/temp{{ player.playerID }}.jpg" alt="Player one's avatar image.">
+      <video ng-src="{{ videoSources[player.playerID] }}" id="player_{{ player.playerID }}_video" autoplay="true"></video>
     </div>
 
     <div class="dialContainer">

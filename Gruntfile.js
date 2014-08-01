@@ -21,6 +21,9 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  // Project configuration.
+  var pkg = require('./package.json');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -369,6 +372,18 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        }, {
+          expand: true,
+          dest: '<%= yeoman.dist %>',
+          cwd: 'heroku',
+          src: '*',
+          rename: function (dest, src) {
+            var path = require('path');
+            if (src === 'distpackage.json') {
+              return path.join(dest, 'package.json');
+            }
+            return path.join(dest, src);
+          }
         }]
       },
       styles: {
@@ -402,6 +417,22 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'test/karma.conf.coffee',
         singleRun: true
+      }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      heroku: {
+        options: {
+          remote: 'git@heroku.com:pokerface-webclient.git',
+          branch: 'master',
+          tag: pkg.version
+        }
       }
     }
   });

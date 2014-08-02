@@ -97,6 +97,9 @@ angular.module('pokerfaceWebclientApp')
       $scope.cards[data.playerId] = data.cards
       console.log "Hand for player #{data.playerId}:", data.cards
 
+    window.onunload = ->
+      socket.emit "removePlayer"
+
     init = ->
       if PeerConnection
         console.log "Initializing my video stream"

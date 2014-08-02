@@ -116,7 +116,7 @@ angular.module('pokerfaceWebclientApp')
       else
         alert "Your browser is not supported or you have to turn on flags. In chrome you go to chrome://flags and turn on Enable PeerConnection remember to restart chrome"
 
-      rtc.connect "ws://localhost:9002"
+      rtc.connect "ws://#{window.location.hostname}:9002"
 
       rtc.on "add remote stream", (stream, socketId) ->
         console.log("Got remote stream: ", URL.createObjectURL(stream))

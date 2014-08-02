@@ -9,7 +9,7 @@
 ###
 angular.module('pokerfaceWebclientApp')
   .factory 'socket', (socketFactory, $window) ->
-    serverHostname = if $window.location.hostname is "localhost" then "http://localhost:9001" else "http://pokerface-server.herokuapp.com:80"
+    serverHostname = "http://#{$window.location.hostname}:" + if $window.location.port is "80" then 80 else parseInt($window.location.port) + 1
 
     socketFactory
       ioSocket: io.connect serverHostname

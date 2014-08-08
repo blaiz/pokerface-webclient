@@ -49,7 +49,7 @@
 
   </div>
 
-  <button id="startGame" ng-click="startGame()" ng-hide="state.game">Start Game</button>
+  <button id="startGame" ng-click="startGame()" ng-if="!state.game && state.players.length > 1">Start Game</button>
 
   <ul id="largeCards" ng-show="state.game">
     <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>

@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>PokerFace</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -17,7 +17,7 @@
     <script type="text/javascript" src="//use.typekit.net/nyf5kng.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
-  <body ng-app="pokerfaceWebclientApp">
+  <body ng-app="pokerfaceWebclientApp" ng-class="{gameroom: newPlayerId}">
     <ng-view></ng-view>
 
     <!-- build:js(.) scripts/vendor.js -->
@@ -46,6 +46,7 @@
     <script src="scripts/directives/fadeinplayer.js"></script>
     <script src="scripts/services/socket.js"></script>
     <script src="scripts/filters/suits.js"></script>
+    <script src="scripts/controllers/game.js"></script>
     <!-- endbuild -->
 </body>
 </html>

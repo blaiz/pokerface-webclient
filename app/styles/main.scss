@@ -47,12 +47,14 @@ table {
   border-spacing: 0;
 }
 
-html {
+/* END OF RESET CSS CODE */
+
+body.gameroom {
   background: url(../images/bgd.jpg) repeat center center fixed;
   background-size: cover;
 }
 
-html, body, #wrapper {
+body.gameroom, #wrapper {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -67,7 +69,7 @@ html, body, #wrapper {
   position: relative;
 }
 
-body {
+body.gameroom {
   font-family: "ff-din-web", sans-serif;
   font-style: normal;
   font-weight: 400;

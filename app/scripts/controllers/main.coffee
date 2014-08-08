@@ -45,11 +45,11 @@ angular.module('pokerfaceWebclientApp')
     socket.on "debug", (message) ->
       console.log message
 
-    socket.on "setPlayerId", (playerId) ->
-      $scope.playerId = $cookies.playerId = playerId
+    socket.on "setPlayerId", (playerID) ->
+      $scope.playerID = $cookies.playerID = playerID
       init()
-      playersWithVideo[playerId] = true
-      console.log "You are player #", playerId
+      playersWithVideo[playerID] = true
+      console.log "You are player #", playerID
 
     socket.on "updateState", (state) ->
       if state.players.length > $scope.state?.players.length
@@ -73,7 +73,7 @@ angular.module('pokerfaceWebclientApp')
       console.log "New state: ", $scope.state
 
     # if $scope.users.currentPlayers.length == 0
-    #   $scope.users.currentPlayers[0] = $scope.playerId
+    #   $scope.users.currentPlayers[0] = $scope.playerID
     # else
     #   for player in $scope.users.currentPlayers
     #     console.log($scope.users.currentPlayers)
@@ -83,19 +83,19 @@ angular.module('pokerfaceWebclientApp')
     # console.log('$scope.users.currentPlayers: ', $scope.users.currentPlayers)
 
     # i = $scope.users.currentPlayers.length
-    # $scope.users.currentPlayers[i] = $scope.playerId
+    # $scope.users.currentPlayers[i] = $scope.playerID
 
 
     # if $scope.state.players?.length isnt state.players.length
     #   console.log('users: ', $scope.state.players)
 
     socket.on "addHand", (cards) ->
-      $scope.cards[$scope.playerId] = cards
+      $scope.cards[$scope.playerID] = cards
       console.log "New hand: ", cards
 
     socket.on "showHand", (data) ->
-      $scope.cards[data.playerId] = data.cards
-      console.log "Hand for player #{data.playerId}:", data.cards
+      $scope.cards[data.playerID] = data.cards
+      console.log "Hand for player #{data.playerID}:", data.cards
 
     window.onunload = ->
       socket.emit "removePlayer"
@@ -110,8 +110,8 @@ angular.module('pokerfaceWebclientApp')
           audio: true
         , (stream) ->
           $scope.$apply ->
-            $scope.videoSources[$scope.playerId] = $sce.trustAsResourceUrl(URL.createObjectURL(stream))
-          socket.emit "startedVideo", { playerId: $scope.playerId, streamUrl: URL.createObjectURL(stream) }
+            $scope.videoSources[$scope.playerID] = $sce.trustAsResourceUrl(URL.createObjectURL(stream))
+          socket.emit "startedVideo", { playerID: $scope.playerID, streamUrl: URL.createObjectURL(stream) }
 
       else
         alert "Your browser is not supported or you have to turn on flags. In chrome you go to chrome://flags and turn on Enable PeerConnection remember to restart chrome"

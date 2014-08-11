@@ -8,7 +8,7 @@
  # Controller of the pokerfaceWebclientApp
 ###
 angular.module('pokerfaceWebclientApp')
-  .controller 'GameCtrl', ($scope, socket, $cookies, $sce) ->
+  .controller 'GameRoomCtrl', ($scope, socket, $routeParams, $sce) ->
     $scope.cards = []
     $scope.newPlayerId = null
     $scope.videoSources = []
@@ -17,6 +17,17 @@ angular.module('pokerfaceWebclientApp')
     playersWithoutVideoQueue = []
     playersWithoutVideo = {}
     playersWithVideo = {}
+
+    $scope.playerLocId = (playerID) ->
+      locId = playerID - $scope.playerID
+      if locId < 0
+        return $scope.state.players.length + locId
+      return locId
+
+    socket.emit "joinGameRoom", {
+      gameRoomId: $routeParams.gameRoomId
+      playerId: localStorage.playerID
+    }
 
     $scope.$watch "newPlayerId", ->
       $scope.newPlayerId = null
@@ -46,8 +57,8 @@ angular.module('pokerfaceWebclientApp')
       console.log message
 
     socket.on "setPlayerId", (playerID) ->
-      $scope.playerID = $cookies.playerID = playerID
-      init()
+      $scope.playerID = localStorage.playerID = + playerID # "+" to typecast to integer
+#      init()
       playersWithVideo[playerID] = true
       console.log "You are player #", playerID
 
@@ -97,9 +108,6 @@ angular.module('pokerfaceWebclientApp')
       $scope.cards[data.playerID] = data.cards
       console.log "Hand for player #{data.playerID}:", data.cards
 
-    window.onunload = ->
-      socket.emit "removePlayer"
-
     init = ->
       if PeerConnection
         console.log "Initializing my video stream"
@@ -116,7 +124,7 @@ angular.module('pokerfaceWebclientApp')
       else
         alert "Your browser is not supported or you have to turn on flags. In chrome you go to chrome://flags and turn on Enable PeerConnection remember to restart chrome"
 
-      rtc.connect "ws://#{window.location.hostname}:9002"
+      rtc.connect "ws://#{window.location.hostname}:10002"
 
       rtc.on "add remote stream", (stream, socketId) ->
         console.log("Got remote stream: ", URL.createObjectURL(stream))

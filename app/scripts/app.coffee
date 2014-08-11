@@ -23,9 +23,9 @@ angular
       .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
-      .when '/game',
-        templateUrl: 'views/game.html'
-        controller: 'GameCtrl'
+      .when '/gameroom/:gameRoomId',
+        templateUrl: 'views/gameroom.html'
+        controller: 'GameRoomCtrl'
       .otherwise
         redirectTo: '/'
 

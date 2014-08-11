@@ -49,12 +49,12 @@ table {
 
 /* END OF RESET CSS CODE */
 
-body.gameroom {
+html {
   background: url(../images/bgd.jpg) repeat center center fixed;
   background-size: cover;
 }
 
-body.gameroom, #wrapper {
+html, body, #wrapper {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -69,7 +69,7 @@ body.gameroom, #wrapper {
   position: relative;
 }
 
-body.gameroom {
+body {
   font-family: "ff-din-web", sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -121,16 +121,16 @@ body.gameroom {
 
   .loc_1 {
     top: 26.6666667%; // 280 / 1050
-    left: 25%; // 290 / 1680
+    left: 75%; // 290 / 1680
   }
 
   .loc_2 {
     top: 26.6666667%; // 280 / 1050
-    left: 75%; // 290 / 1680
+    left: 25%; // 290 / 1680
   }
 }
 
-.player_count_4, .player_count_5 {
+.player_count_4 {
   .loc_0 {
     top: 14.2857143%; // 150 / 1050
     left: 50%; // 585 / 1680
@@ -138,12 +138,34 @@ body.gameroom {
 
   .loc_1 {
     top: 26.6666667%; // 280 / 1050
-    left: 33.33333333%; // 290 / 1680
+    left: 66.66666667%; // 290 / 1680
   }
 
   .loc_2 {
+    top: 46.1904762%; // 485 / 1050
+    left: 83.33333332%; // 290 / 1680
+  }
+
+  .loc_3 {
+    top: 26.6666667%; // 280 / 1050
+    left: 33.33333333%; // 290 / 1680
+  }
+}
+
+.player_count_5 {
+  .loc_0 {
+    top: 14.2857143%; // 150 / 1050
+    left: 50%; // 585 / 1680
+  }
+
+  .loc_1 {
     top: 26.6666667%; // 280 / 1050
     left: 66.66666667%; // 290 / 1680
+  }
+
+  .loc_2 {
+    top: 46.1904762%; // 485 / 1050
+    left: 83.33333332%; // 290 / 1680
   }
 
   .loc_3 {
@@ -152,8 +174,8 @@ body.gameroom {
   }
 
   .loc_4 {
-    top: 46.1904762%; // 485 / 1050
-    left: 83.33333332%; // 290 / 1680
+    top: 26.6666667%; // 280 / 1050
+    left: 33.33333333%; // 290 / 1680
   }
 }
 

@@ -1,17 +1,17 @@
 'use strict'
 
-describe 'Controller: GameCtrl', ->
+describe 'Controller: GameRoomCtrl', ->
 
   # load the controller's module
   beforeEach module 'pokerfaceWebclientApp'
 
-  GameCtrl = {}
+  GameRoomCtrl = {}
   scope = {}
 
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope) ->
     scope = $rootScope.$new()
-    GameCtrl = $controller 'GameCtrl', {
+    GameRoomCtrl = $controller 'GameRoomCtrl', {
       $scope: scope
     }
 

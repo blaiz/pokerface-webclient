@@ -2,7 +2,7 @@
 
   <!-- add winner class to make winner -->
   <div fade-in-player ng-repeat="player in state.players" class="player loc_{{ playerLocId(player.playerID) }}" ng-class="{trans_out: player.playerID == newPlayerId, player_action: player.playerID == state.game.turn, folded: player.folded}">
-    <div class="dealer" ng-show="player.playerID == state.game.dealer">d</div>
+    <div class="dealer" ng-show="player.playerID == state.game.dealer" title="Player is the dealer">d</div>
 
     <div class="avatar">
       <span class="foldMessage"><span>Fold</span></span>
@@ -11,24 +11,32 @@
     </div>
 
     <div class="dialContainer">
-      <input knob type="text" value="0" class="dial" data-width="178">
-      <button class="betButton" ng-click="bet(state.game.bets[player.playerID])" ng-show="state.game && state.game.turn == playerID && player.playerID == playerID">Bet {{ state.game.bets[player.playerID] }}</button>
-      <button class="fold" ng-click="fold()" ng-show="state.game && state.game.turn == playerID && player.playerID == playerID">Fold</button>
+      <div ng-if="state.game && state.game.turn == playerID && player.playerID == playerID">
+        <input type="range" ng-model="currentBet" min="{{state.game.lastRaise + getMaxBet() - state.game.bets[playerID]}}" max="{{player.chips}}">
+        <button class="fold" ng-click="check()">Check</button>
+        <button class="fold" ng-click="call()">Call</button>
+        <button class="betButton" ng-click="bet(currentBet)">
+          <span ng-show="state.game.lastRaise === 0">Bet</span>
+          <span ng-hide="state.game.lastRaise === 0">Raise</span>
+            {{ currentBet }}
+          <span ng-hide="state.game.lastRaise === 0"></span>more
+        </button>
+        <button class="fold" ng-click="fold()">Fold</button>
+      </div>
     </div>
 
     <div class="score color_0">
-      <h1>{{ player.chips }}</h1>
-      <h2 class="info">stack total</h2>
+      <h1 title="Player's remaining chips amount">{{ player.chips }}</h1>
     </div>
 
     <div class="stats">
 
       <ul class="cards">
-        <li ng-show="cards[player.playerID]" ng-repeat="card in cards[player.playerID]">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
-        <li class="amountBetting color_0">{{ state.game.bets[player.playerID] }}</li>
+        <li ng-show="cards[player.playerID]" ng-repeat="card in cards[player.playerID]" title="Player's hole cards">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
+        <li class="amountBetting color_0" title="Player's current round bet amount">{{ state.game.bets[player.playerID] }}</li>
       </ul>
 
-      PlayerID: {{player.playerID}} | LocID: {{playerLocId(player.playerID)}}
+      <!--PlayerID: {{player.playerID}} | LocID: {{playerLocId(player.playerID)}}-->
 
     </div>
 
@@ -37,11 +45,11 @@
   <button id="startGame" ng-click="startGame()" ng-if="!state.game && state.players.length > 1">Start Game</button>
 
   <ul id="largeCards" ng-show="state.game">
-    <li ng-repeat="card in state.game.board">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
+    <li ng-repeat="card in state.game.board" title="Board">{{ card[0] }} <span class="icon {{card | suits}}">{{ card | suits }}</span></li>
   </ul>
 
   <div id="pot" ng-show="state.game">
-    <h1>{{ state.game.pot }}</h1>
+    <h1 title="Pot">{{ state.game.pot }}</h1>
   </div>
 
 </div><!-- wrapper -->

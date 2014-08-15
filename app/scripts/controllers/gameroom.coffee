@@ -12,6 +12,7 @@ angular.module('pokerfaceWebclientApp')
     $scope.cards = []
     $scope.newPlayerId = null
     $scope.videoSources = []
+    $scope.currentBet = 0
 
     videoStreams = []
     playersWithoutVideoQueue = []
@@ -23,6 +24,12 @@ angular.module('pokerfaceWebclientApp')
       if locId < 0
         return $scope.state.players.length + locId
       return locId
+
+    $scope.getMaxBet = ->
+      maxBet = 0
+      for bet in $scope.state.game.bets
+        maxBet = bet if bet > maxBet
+      maxBet
 
     socket.emit "joinGameRoom", {
       gameRoomId: $routeParams.gameRoomId
@@ -37,6 +44,12 @@ angular.module('pokerfaceWebclientApp')
 
     $scope.startGame = ->
       socket.emit "startGame"
+
+    $scope.check = ->
+      socket.emit "check"
+
+    $scope.call = ->
+      socket.emit "call"
 
     $scope.fold = ->
       socket.emit "fold"
@@ -80,6 +93,8 @@ angular.module('pokerfaceWebclientApp')
         delete playersWithoutVideo[newPlayerWithVideo]
 
       $scope.state = state
+      if $scope.state.game?
+        $scope.currentBet = $scope.state.game.lastRaise + $scope.getMaxBet() - $scope.state.game.bets[$scope.state.game.turn]
       $scope.cards = [] unless $scope.state.game? # if the game hasn't started yet, let's clear all cards
       console.log "New state: ", $scope.state
 
